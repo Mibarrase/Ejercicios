@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tamagotchi</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="title">
+            <img src="img/pet.png" alt="Arturito">
+            <h1>Arturito</h1>
+        </div>
+        <div class="tamagotchi">
+            <div id="status">
+                <p>Hambre: <span id="hunger">0</span></p>
+                <p>Felicidad: <span id="happiness">100</span></p>
+            </div>
+            <img src="img/tamagotchi.png" alt="Tamagotchi" id="tamagotchi-img">
+        </div>
+        <div class="controls">
+            <div class="control">
+                <img src="img/burguer.png" alt="Alimentar" id="feed">
+                <p>Hambre</p>
+            </div>
+            <div class="control">
+                <img src="img/ps5.jpg" alt="Jugar" id="play">
+                <p>Jugar</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const hungerElement = document.getElementById('hunger');
+            const happinessElement = document.getElementById('happiness');
+            const feedButton = document.getElementById('feed');
+            const playButton = document.getElementById('play');
+
+            let hunger = 0;
+            let happiness = 100;
+
+            function updateStatus() {
+                hungerElement.textContent = hunger;
+                happinessElement.textContent = happiness;
+            }
+
+            function increaseHunger() {
+                hunger += 10;
+                if (hunger > 100) hunger = 100;
+                if (hunger === 100) {
+                    happiness -= 10;
+                    if (happiness < 0) happiness = 0;
+                }
+                updateStatus();
+            }
+
+            function decreaseHappiness() {
+                happiness -= 5;
+                if (happiness < 0) happiness = 0;
+                updateStatus();
+            }
+
+            function feed() {
+                hunger -= 20;
+                if (hunger < 0) hunger = 0;
+                updateStatus();
+            }
+
+            function play() {
+                happiness += 20;
+                if (happiness > 100) happiness = 100;
+                updateStatus();
+            }
+
+            feedButton.addEventListener('click', feed);
+            playButton.addEventListener('click', play);
+
+            setInterval(increaseHunger, 3000);
+            setInterval(decreaseHappiness, 5000);
+        });
+    </script>
+</body>
+</html>

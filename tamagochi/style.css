@@ -1,0 +1,56 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.title img {
+    width: 50px;
+    height: auto;
+}
+
+.tamagotchi {
+    margin-bottom: 20px;
+}
+
+#tamagotchi-img {
+    width: 150px;
+    height: auto;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.controls .control {
+    text-align: center;
+}
+
+.controls img {
+    width: 50px;
+    height: auto;
+    cursor: pointer;
+    margin: 5px;
+}
+</style>
